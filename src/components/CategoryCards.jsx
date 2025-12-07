@@ -38,7 +38,7 @@ const CategoryCards = () => {
         Browse Categories
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
         {categories.map((cat, i) => (
           <Link key={i} to={`/category-filtered-product/${cat?.category}`}>
             <div className="card bg-base-100 image-full   p-3 rounded-xl shadow-lg text-center cursor-pointer hover:shadow-xl hover:-translate-y-1 transition">

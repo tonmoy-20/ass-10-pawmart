@@ -4,13 +4,13 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import i1 from "../assets/1.jpg";
-import i4 from "../assets/4.jpg";
-import i6 from "../assets/6.jpg";
+import i1 from "../assets/pets.jpg";
+import i4 from "../assets/addopttion.jpg";
+import i6 from "../assets/happy-owner.jpg";
 
 const Slider = () => {
   return (
-    <div className="mt-45 md:mt-2">
+    <div className="mt-44 md:mt-2">
       <Swiper
         pagination={{
           dynamicBullets: true,
@@ -19,13 +19,52 @@ const Slider = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img className="w-full object-cover h-[400px]" src={i1} alt="" />
+          <div className="card bg-base-100 image-full  ">
+            <figure>
+              <img
+                className="w-full object-cover h-[400px]"
+                src={i1}
+                alt="Pets"
+              />
+            </figure>
+            <div className="card-body justify-center items-center">
+              <h1 className="card-title text-6xl ">
+                “Find Your Furry Friend Today!”
+              </h1>
+            </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full object-cover h-[400px]" src={i4} alt="" />
+          <div className="card bg-base-100 image-full  ">
+            <figure>
+              <img
+                className="w-full object-cover h-[400px]"
+                src={i4}
+                alt="Adoptions"
+              />
+            </figure>
+            <div className="card-body justify-center items-center">
+              <h1 className="card-title text-6xl ">
+                “Adopt, Don’t Shop — Give a Pet a Home.”
+              </h1>
+            </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full object-cover h-[400px]" src={i6} alt="" />
+          <div className="card bg-base-100 image-full  ">
+            <figure>
+              <img
+                className="w-full object-cover h-[400px]"
+                src={i6}
+                alt="Happy owner"
+              />
+            </figure>
+            <div className="card-body justify-center items-center ">
+              <h1 className="card-title text-6xl ">
+                “Because Every Pet Deserves Love and Care.”
+              </h1>
+            </div>
+          </div>
         </SwiperSlide>
       </Swiper>
     </div>
