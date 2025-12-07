@@ -33,16 +33,7 @@ const PetHeroes = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {heroes.map((hero, index) => (
-          <div key={index} className="shadow-md  border-1 p-6 rounded-e-4xl">
-            <img
-              src={hero.image}
-              alt={hero.name}
-              className="w-28 h-28 object-cover rounded-full mx-auto mb-4"
-            />
-
-            <h3 className="text-xl font-bold">{hero.name}</h3>
-            <p className="">{hero.role}</p>
-          </div>
+         
         ))}
       </div>
     </section>
