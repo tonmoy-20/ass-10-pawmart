@@ -78,7 +78,7 @@ const ServiceDetails = () => {
 
           <div className="card-actions justify-end">
             <div className="badge badge-outline">{services?.category}</div>
-            <div className="badge badge-outline">{services?.price}</div>
+            <div className="badge badge-outline">$ {services?.price}</div>
           </div>
 
           {/* ▶️ BUTTON MOVED INSIDE CARD */}

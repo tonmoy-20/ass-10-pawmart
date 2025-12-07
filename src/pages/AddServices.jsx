@@ -64,7 +64,7 @@ const AddServices = () => {
 
   return (
     <div>
-      <div className="max-w-xl mx-auto p-6 bg-white shadow-md rounded-md mt-8 my-10">
+      <div className="max-w-xl  mx-auto p-6  shadow-xl rounded-xl mt-8 my-10">
         <h2 className="text-2xl font-semibold mb-6">Create Listing</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name */}
@@ -83,7 +83,7 @@ const AddServices = () => {
             <label className="block font-medium mb-1">Category</label>
             <select
               name="category"
-              className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="Pets">Pets</option>
               <option value="Food">Food</option>
@@ -153,7 +153,7 @@ const AddServices = () => {
               name="email"
               value={user?.email}
               readOnly
-              className="w-full border border-gray-300 rounded-md p-2 bg-gray-100 cursor-not-allowed"
+              className="w-full border border-gray-300 rounded-md p-2  cursor-not-allowed"
             />
           </div>
 

@@ -34,12 +34,12 @@ const CategoryCards = () => {
         {categories.map((cat, idx) => (
           <div
             key={idx}
-            className="bg-white shadow-md p-6 rounded-xl text-center 
+            className=" shadow-xl p-6 rounded-xl text-center 
                        hover:shadow-xl transition duration-300 hover:-translate-y-1"
           >
             <div className="text-5xl mb-4">{cat.icon}</div>
             <h3 className="text-xl font-semibold mb-2">{cat.title}</h3>
-            <p className="text-gray-600">{cat.desc}</p>
+            <p className="">{cat.desc}</p>
           </div>
         ))}
       </div>
