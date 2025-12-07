@@ -19,7 +19,7 @@ const MyOrders = () => {
 
   return (
     <div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto py-10">
         <table className="table table-xs">
           <thead>
             <tr>

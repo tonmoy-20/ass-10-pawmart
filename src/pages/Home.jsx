@@ -1,15 +1,15 @@
 import React from "react";
-import Slider from "../components/Slider";
 import Popular from "../components/Popular";
 import WhyAdopt from "../components/WhyAdopts";
 import PetHeroes from "../components/PetHeros";
 import CategoryCards from "../components/CategoryCards";
+import SliderSwip from "../components/SliderSwip";
 
 const Home = () => {
   return (
     <div>
       <title>Home</title>
-      <Slider />
+      <SliderSwip />
       <CategoryCards />
       <Popular />
 
