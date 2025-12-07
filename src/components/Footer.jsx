@@ -20,8 +20,8 @@ const Footer = () => {
         <p>
           🐾 PAW-MART Company Ltd.
           <br />
-          Short Description: “PawMart connects local pet owners and buyers for
-          adoption and pet care products.”
+          “PawMart connects local pet owners and buyers for adoption and pet
+          care products.”
         </p>
       </aside>
       <nav>
