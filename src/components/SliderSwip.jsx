@@ -12,7 +12,7 @@ import i6 from "../assets/happy-owner.jpg";
 
 const SliderSwip = () => {
   return (
-    <div>
+    <div className="mt-52 md:mt-2">
       <>
         <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
           <SwiperSlide>
