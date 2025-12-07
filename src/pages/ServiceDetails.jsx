@@ -81,7 +81,6 @@ const ServiceDetails = () => {
             <div className="badge badge-outline">$ {services?.price}</div>
           </div>
 
-          {/* ▶️ BUTTON MOVED INSIDE CARD */}
           <button
             className="btn btn-outline w-full mt-3"
             onClick={() => document.getElementById("my_modal_3").showModal()}
