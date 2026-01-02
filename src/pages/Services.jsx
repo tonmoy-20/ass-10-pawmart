@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { motion } from "motion/react";
+import { TbCurrencyTaka } from "react-icons/tb";
+import { BiCategory } from "react-icons/bi";
 const Services = () => {
   const [services, setServices] = useState([]);
 
@@ -27,7 +29,7 @@ const Services = () => {
         <option value="Accessories">Accessories</option>
         <option value="Care Products">Care Products</option>
       </select>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {services.map((service) => (
           <motion.div
             initial={{ scale: 0.5 }}
@@ -39,7 +41,7 @@ const Services = () => {
           >
             <figure>
               <img
-                className="w-full h-[300px] object-cover"
+                className="w-full h-[250px] object-cover"
                 src={service?.image}
                 alt="Shoes"
               />
@@ -47,12 +49,19 @@ const Services = () => {
             <div className="card-body">
               <h2 className="card-title">{service?.name}</h2>
               <div className="flex justify-between font-semibold items-center gap-10">
-                <p>Price : {service?.price}</p>
-                <p>Category : {service?.category}</p>
+                <p className="flex items-center justify-normal ">
+                  <TbCurrencyTaka />
+                  {service?.price}
+                </p>
+                <p className="flex items-center justify-evenly">
+                  <BiCategory /> {service?.category}
+                </p>
               </div>
               <div className="card-actions justify-end">
                 <Link to={`/details/${service?._id}`}>
-                  <button className="btn btn-primary">View Details</button>
+                  <button className="btn  text-amber-50 btn-primary">
+                    View Details
+                  </button>
                 </Link>
               </div>
             </div>

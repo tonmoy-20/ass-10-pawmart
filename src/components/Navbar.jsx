@@ -3,7 +3,7 @@ import { Link } from "react-router"; // Fix: react-router-dom
 import { AuthContext } from "../Provider/AuthProvider";
 import { signOut } from "firebase/auth";
 import auth from "../firebase/firebase.config";
-
+import logo from "../assets/pawmart-logo-removebg-preview.png";
 const Navbar = () => {
   const { user } = useContext(AuthContext);
 
@@ -27,7 +27,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100  shadow-lg">
+    <nav className="navbar bg-amber-300 sticky text-black top-0 z-50 shadow-lg">
       <div className="navbar-start">
         <div className="dropdown ">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -56,6 +56,9 @@ const Navbar = () => {
             <li>
               <Link to="/services">Pet's & Supplies</Link>
             </li>
+            <li>
+              <Link to="/blog">Blogs</Link>
+            </li>
             {user && (
               <>
                 <li>
@@ -75,7 +78,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost text-lg">
-          🐾 PawMart
+          <img className="w-40 h-30 mb-2" src={logo} alt="" />
         </Link>
       </div>
 
@@ -86,6 +89,9 @@ const Navbar = () => {
           </li>
           <li>
             <Link to="/services">Pet's & Supplies</Link>
+          </li>
+          <li>
+            <Link to="/blog">Blogs </Link>
           </li>
           {user && (
             <>
@@ -160,7 +166,7 @@ const Navbar = () => {
           </Link>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 

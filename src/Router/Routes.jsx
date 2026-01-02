@@ -14,6 +14,9 @@ import MyServices from "../pages/MyServices";
 import UpdateService from "../pages/UpdateService";
 import MyOrders from "../pages/MyOrders";
 import CategoryFiltered from "../components/CategoryFiltered";
+import PrivacyPolicy from "../pages/Privacy-policy";
+import Contact from "../pages/ContactPage";
+import BlogPage from "../pages/BlogPage";
 
 const router = createBrowserRouter([
   {
@@ -84,9 +87,9 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: (
-          <PrivateRoute>
+          <>
             <ServiceDetails />
-          </PrivateRoute>
+          </>
         ),
       },
       {
@@ -96,6 +99,18 @@ const router = createBrowserRouter([
             <Profile />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/privacy-policy",
+        element: <PrivacyPolicy />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/blog",
+        element: <BlogPage />,
       },
     ],
   },

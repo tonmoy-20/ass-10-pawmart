@@ -1,4 +1,5 @@
 import React from "react";
+import { BiCategory } from "react-icons/bi";
 import { Link } from "react-router";
 
 const categories = [
@@ -33,15 +34,16 @@ const categories = [
 
 const CategoryCards = () => {
   return (
-    <section className="py-16 px-4 md:px-20">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-        Browse Categories
+    <section className="py-5 px-4 md:px-20">
+      <h2 className="text-2xl  font-bold flex items-center mb-3">
+        <BiCategory />
+        <span className="ml-2"> Browse Categories</span>
       </h2>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
         {categories.map((cat, i) => (
           <Link key={i} to={`/category-filtered-product/${cat?.category}`}>
-            <div className="card bg-base-100 image-full   p-3 rounded-xl shadow-lg text-center cursor-pointer hover:shadow-xl hover:-translate-y-1 transition">
+            <div className="card bg-base-100 image-full    rounded-b-lg shadow-sm text-center cursor-pointer hover:shadow-xl hover:-translate-y-1 transition">
               <figure>
                 <img src={cat?.image} alt="Shoes" />
               </figure>

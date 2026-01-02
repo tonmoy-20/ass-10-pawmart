@@ -1,4 +1,5 @@
 import React from "react";
+import { FaUserDoctor } from "react-icons/fa6";
 
 const PetHeroes = () => {
   const heroes = [
@@ -20,12 +21,12 @@ const PetHeroes = () => {
   ];
 
   return (
-    <section className="py-16  text-center px-4 md:px-20">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">
-        Meet Our Pet Heroes
+    <section className="py-5   px-4 md:px-20">
+      <h2 className="text-2xl  flex items-center font-bold mb-4">
+        <FaUserDoctor /> <span className="ml-2">Meet Our Pet Heroes</span>
       </h2>
 
-      <p className=" max-w-2xl mx-auto mb-10">
+      <p className="   mb-5">
         These amazing people devote their time, compassion, and love to make
         every rescued pet feel safe, loved, and cared for. They are the true
         heroes behind PawMart.

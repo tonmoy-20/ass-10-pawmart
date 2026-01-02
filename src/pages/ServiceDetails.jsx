@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { AuthContext } from "./../Provider/AuthProvider";
 import axios from "axios";
+import { TbCurrencyTaka } from "react-icons/tb";
+import { BiCategory } from "react-icons/bi";
 
 const ServiceDetails = () => {
   const { id } = useParams();
@@ -77,12 +79,17 @@ const ServiceDetails = () => {
           <p className="font-lg">{services?.description}</p>
 
           <div className="card-actions justify-end">
-            <div className="badge badge-outline">{services?.category}</div>
-            <div className="badge badge-outline">$ {services?.price}</div>
+            <div className="badge badge-outline">
+              <BiCategory />
+              {services?.category}
+            </div>
+            <div className="badge badge-outline">
+              <TbCurrencyTaka /> {services?.price}
+            </div>
           </div>
 
           <button
-            className="btn btn-outline w-full mt-3"
+            className="btn btn-warning text-amber-50 w-full mt-3"
             onClick={() => document.getElementById("my_modal_3").showModal()}
           >
             Adopt / Order
@@ -90,98 +97,103 @@ const ServiceDetails = () => {
         </div>
       </div>
 
-      <dialog id="my_modal_3" className="modal">
-        <div className="modal-box">
-          <form method="dialog">
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-              ✕
-            </button>
-          </form>
+      {user && (
+        <dialog id="my_modal_3" className="modal">
+          <div className="modal-box">
+            <form method="dialog">
+              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                ✕
+              </button>
+            </form>
 
-          <form
-            onSubmit={handleOrder}
-            className="fieldset bg-base-200 border-base-300 rounded-box w-full border p-4"
-          >
-            <legend className="fieldset-legend">Order Details</legend>
+            <form
+              onSubmit={handleOrder}
+              className="fieldset bg-base-200 border-base-300 rounded-box w-full border p-4"
+            >
+              <legend className="fieldset-legend">Order Details</legend>
 
-            <label className="label">Product Name</label>
-            <input
-              readOnly
-              defaultValue={services?.name}
-              name="productName"
-              type="text"
-              className="input"
-              placeholder="Product Name"
-            />
+              <label className="label">Product Name</label>
+              <input
+                readOnly
+                defaultValue={services?.name}
+                name="productName"
+                type="text"
+                className="input"
+                placeholder="Product Name"
+              />
 
-            <label className="label">Buyer Name</label>
-            <input
-              defaultValue={user?.displayName}
-              name="buyerNAme"
-              type="text"
-              className="input"
-              placeholder="Buyer Name"
-            />
+              <label className="label">Buyer Name</label>
+              <input
+                defaultValue={user?.displayName}
+                name="buyerNAme"
+                type="text"
+                className="input"
+                placeholder="Buyer Name"
+              />
 
-            <label className="label">Buyer Email</label>
-            <input
-              readOnly
-              defaultValue={user?.email}
-              name="buyerEmail"
-              type="email"
-              className="input"
-              placeholder="Your email"
-            />
+              <label className="label">Buyer Email</label>
+              <input
+                readOnly
+                defaultValue={user?.email}
+                name="buyerEmail"
+                type="email"
+                className="input"
+                placeholder="Your email"
+              />
 
-            <label className="label">Quantity</label>
-            <input
-              required
-              type="number"
-              name="quantity"
-              className="input"
-              placeholder="Quantity"
-            />
+              <label className="label">Quantity</label>
+              <input
+                required
+                type="number"
+                name="quantity"
+                className="input"
+                placeholder="Quantity"
+              />
 
-            <label className="label">Price</label>
-            <input
-              readOnly
-              defaultValue={services?.price}
-              name="price"
-              type="number"
-              className="input"
-              placeholder="Price"
-            />
+              <label className="label">Price</label>
+              <input
+                readOnly
+                defaultValue={services?.price}
+                name="price"
+                type="number"
+                className="input"
+                placeholder="Price"
+              />
 
-            <label className="label">Address</label>
-            <input
-              type="text"
-              name="address"
-              className="input"
-              placeholder="Address"
-            />
+              <label className="label">Address</label>
+              <input
+                type="text"
+                name="address"
+                className="input"
+                placeholder="Address"
+              />
 
-            <label className="label">Phone Number</label>
-            <input
-              name="phoneNum"
-              type="text"
-              className="input"
-              placeholder="Your Phone Number"
-            />
+              <label className="label">Phone Number</label>
+              <input
+                name="phoneNum"
+                type="text"
+                className="input"
+                placeholder="Your Phone Number"
+              />
 
-            <label className="label">Additional Note</label>
-            <textarea
-              name="additionalNote"
-              type="text"
-              className="input"
-              placeholder="Additional Note"
-            />
+              <label className="label">Additional Note</label>
+              <textarea
+                name="additionalNote"
+                type="text"
+                className="input"
+                placeholder="Additional Note"
+              />
 
-            <button type="submit" className="btn btn-primary mt-3 w-full">
-              Place Order
-            </button>
-          </form>
-        </div>
-      </dialog>
+              <button
+                type="submit"
+                className="btn btn-success mt-3 text-amber-50 w-full"
+              >
+                Place Order
+              </button>
+            </form>
+          </div>
+        </dialog>
+      )}
     </div>
   );
 };

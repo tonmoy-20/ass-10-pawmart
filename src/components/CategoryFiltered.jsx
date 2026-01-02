@@ -1,5 +1,7 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
+import { TbCurrencyTaka } from "react-icons/tb";
+import { BiCategory } from "react-icons/bi";
 
 const CategoryFiltered = () => {
   const { categoryName } = useParams();
@@ -31,8 +33,15 @@ const CategoryFiltered = () => {
               <p className="font-lg">{p?.description}</p>
 
               <div className="card-actions justify-end">
-                <div className="badge badge-outline">{p?.category}</div>
-                <div className="badge badge-outline">$ {p?.price}</div>
+                <div className="badge badge-outline">
+                  {" "}
+                  <BiCategory />
+                  {p?.category}
+                </div>
+                <div className="badge badge-outline">
+                  <TbCurrencyTaka />
+                  {p?.price}
+                </div>
               </div>
             </div>
           </div>
