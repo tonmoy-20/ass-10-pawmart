@@ -8,6 +8,7 @@ import Faq from "./Faq";
 import About from "./About";
 import Newsletter from "./Newsletter";
 import Testimonials from "./Testmonials";
+import SupportHelp from "./Dashboard/SupportHelp";
 
 const Home = () => {
   return (
@@ -20,9 +21,10 @@ const Home = () => {
       <WhyAdopt />
       <PetHeroes />
       <Testimonials />
-      <Newsletter />
-      <Faq />
+
       <About />
+      <Newsletter />
+      <SupportHelp />
     </div>
   );
 };

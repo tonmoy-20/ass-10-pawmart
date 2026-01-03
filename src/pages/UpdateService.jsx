@@ -48,7 +48,7 @@ const UpdateService = () => {
       .put(`https://missionscic.vercel.app/update/${id}`, formData)
       .then((res) => {
         console.log(res.data);
-        navigation("/my-services");
+        navigation("/dashboard/my-services");
       })
       .catch((err) => {
         console.log(err);

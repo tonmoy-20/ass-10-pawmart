@@ -3,6 +3,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { Link } from "react-router";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { TbCurrencyTaka } from "react-icons/tb";
 
 const MyServices = () => {
   const [myServices, setMyServices] = useState([]);
@@ -91,7 +92,12 @@ const MyServices = () => {
                 <td>
                   <p>{service?.description}</p>
                 </td>
-                <td>{service?.price}</td>
+                <td>
+                  <div className="flex justify-normal items-center">
+                    {" "}
+                    <TbCurrencyTaka /> {service?.price}
+                  </div>
+                </td>
                 <td>
                   <div className="flex gap-3.5 items-center">
                     <button

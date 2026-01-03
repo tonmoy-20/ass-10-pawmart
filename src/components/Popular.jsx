@@ -3,6 +3,7 @@ import { BiCategory } from "react-icons/bi";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { Link } from "react-router";
 import { LuListCollapse } from "react-icons/lu";
+import { motion } from "motion/react";
 
 const Popular = () => {
   const [services, setServices] = useState([]);
@@ -26,7 +27,14 @@ const Popular = () => {
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
         {services.slice(0, 6).map((service) => (
-          <div className="card bg-base-100 w-full  shadow-sm">
+          <motion.div
+            initial={{ scale: 0.5 }}
+            animate={{
+              scale: 1,
+              transition: { duration: 1.7 },
+            }}
+            className="card bg-base-100 w-full  shadow-sm"
+          >
             <figure>
               <img
                 className="w-full h-[300px] object-cover"
@@ -53,7 +61,7 @@ const Popular = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

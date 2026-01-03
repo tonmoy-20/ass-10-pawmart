@@ -1,101 +1,96 @@
 import React from "react";
-import { MdOutlinePets } from "react-icons/md";
-import { TbTruckDelivery } from "react-icons/tb";
-import { VscWorkspaceTrusted } from "react-icons/vsc";
+import { FaPaw, FaHeart, FaUsers, FaShieldAlt } from "react-icons/fa";
+import { Link } from "react-router";
 
 const About = () => {
   return (
-    <div style={styles.container}>
-      <div style={styles.card}>
-        <h1 style={styles.title}>About PawMart</h1>
-
-        <p style={styles.text}>
-          PawMart is a trusted online destination for pet lovers, offering
-          high-quality food, toys, accessories, and grooming products for your
-          furry companions.
+    <div className="min-h-screen px-6 py-12">
+      {/* Hero Section */}
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <FaPaw className="text-5xl text-purple-600 mx-auto mb-4" />
+        <h1 className="text-4xl font-bold mb-3">About PawMart</h1>
+        <p className="text-gray-600">
+          PawMart is a trusted platform dedicated to connecting loving homes
+          with happy pets and quality pet care services.
         </p>
+      </div>
 
-        <p style={styles.text}>
-          We believe pets are family. That’s why PawMart focuses on delivering
-          safe, reliable, and affordable pet products that support a healthy and
-          happy lifestyle for dogs, cats, and other pets.
-        </p>
-
-        <div style={styles.features}>
-          <div style={styles.feature}>
-            <MdOutlinePets /> <strong>Pet-Friendly Products</strong>
-            <p>Carefully selected items for your pet’s comfort and safety.</p>
-          </div>
-
-          <div style={styles.feature}>
-            <TbTruckDelivery />
-            <strong>Fast & Reliable Delivery</strong>
-            <p>Quick delivery so your pets never run out of essentials.</p>
-          </div>
-
-          <div style={styles.feature}>
-            <VscWorkspaceTrusted />
-            <strong>Trusted by Pet Lovers</strong>
-            <p>Thousands of happy pet parents choose PawMart.</p>
-          </div>
+      {/* Mission & Vision */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto mb-20">
+        <div className=" rounded-2xl shadow p-8">
+          <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
+            <FaHeart className="text-red-500" /> Our Mission
+          </h2>
+          <p className="text-gray-600 leading-relaxed">
+            Our mission is to ensure every pet receives love, care, and a safe
+            home. We strive to make pet adoption, shopping, and services simple,
+            ethical, and accessible for everyone.
+          </p>
         </div>
 
-        <p style={styles.footerText}>
-          Thank you for choosing <strong>PawMart</strong> — because your pet
-          deserves the best 🐾
+        <div className=" rounded-2xl shadow p-8">
+          <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
+            <FaUsers className="text-blue-500" /> Our Vision
+          </h2>
+          <p className="text-gray-600 leading-relaxed">
+            We envision a world where every pet is valued as family. PawMart
+            aims to become the most trusted digital destination for pet lovers
+            worldwide.
+          </p>
+        </div>
+      </div>
+
+      {/* Why Choose Us */}
+      <div className="max-w-6xl mx-auto mb-20">
+        <h2 className="text-3xl font-bold text-center mb-10">
+          Why Choose PawMart?
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className=" rounded-2xl shadow p-6 text-center hover:shadow-lg transition">
+            <FaPaw className="text-4xl text-purple-500 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Trusted Adoption</h3>
+            <p className="text-gray-600 text-sm">
+              We work with verified shelters and pet owners to ensure safe and
+              responsible adoptions.
+            </p>
+          </div>
+
+          <div className=" rounded-2xl shadow p-6 text-center hover:shadow-lg transition">
+            <FaShieldAlt className="text-4xl text-green-500 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Quality Products</h3>
+            <p className="text-gray-600 text-sm">
+              Carefully selected pet products to ensure health, safety, and
+              happiness.
+            </p>
+          </div>
+
+          <div className=" rounded-2xl shadow p-6 text-center hover:shadow-lg transition">
+            <FaHeart className="text-4xl text-red-400 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Community Driven</h3>
+            <p className="text-gray-600 text-sm">
+              Built by pet lovers, for pet lovers — your trust means everything
+              to us.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Closing Section */}
+      <div className="text-center max-w-3xl mx-auto">
+        <h2 className="text-3xl font-bold mb-4">Join the PawMart Family</h2>
+        <p className="text-gray-600 mb-6">
+          Whether you’re adopting, shopping, or simply exploring, PawMart is
+          here to support your journey with your furry companions.
         </p>
+        <Link to={"/services"}>
+          <button className="btn bg-purple-600 hover:bg-purple-700 text-white px-10 rounded-full">
+            Explore PawMart
+          </button>
+        </Link>
       </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    minHeight: "100vh",
-
-    padding: "48px 16px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  card: {
-    maxWidth: "900px",
-    // backgroundColor: "#ffffff",
-    padding: "40px",
-    borderRadius: "16px",
-    boxShadow: "0 10px 25px rgba(0,0,0,0.06)",
-  },
-  title: {
-    fontSize: "36px",
-    marginBottom: "20px",
-    textAlign: "center",
-  },
-  text: {
-    fontSize: "16px",
-    // color: "#374151",
-    lineHeight: 1.8,
-    marginBottom: "16px",
-    textAlign: "center",
-  },
-  features: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-    gap: "24px",
-    marginTop: "32px",
-    marginBottom: "32px",
-  },
-  feature: {
-    // backgroundColor: "#f3f4f6",
-    padding: "20px",
-    borderRadius: "12px",
-    textAlign: "center",
-  },
-  footerText: {
-    textAlign: "center",
-    fontSize: "16px",
-    fontWeight: 600,
-    color: "#16a34a",
-  },
 };
 
 export default About;

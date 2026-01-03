@@ -59,7 +59,7 @@ const Services = () => {
               </div>
               <div className="card-actions justify-end">
                 <Link to={`/details/${service?._id}`}>
-                  <button className="btn  text-amber-50 btn-primary">
+                  <button className="btn btn-soft btn-primary">
                     View Details
                   </button>
                 </Link>

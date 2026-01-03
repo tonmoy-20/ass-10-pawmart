@@ -64,21 +64,25 @@ const Navbar = () => {
                 <li>
                   <Link to="/profile">My Profile</Link>
                 </li>
+
                 <li>
                   <Link to="/add-services">Add Listing</Link>
+                </li>
+                <li>
+                  <Link to="/my-orders">My Orders</Link>
                 </li>
                 <li>
                   <Link to="/my-services">My Listing</Link>
                 </li>
                 <li>
-                  <Link to="/my-orders">My Orders</Link>
+                  <Link to="/dashboard">Dashboard</Link>
                 </li>
               </>
             )}
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost text-lg">
-          <img className="w-40 h-30 mb-2" src={logo} alt="" />
+          <img className="w-40 h-30 mb-2 mt-2" src={logo} alt="Paw-Mart" />
         </Link>
       </div>
 
@@ -106,6 +110,9 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/my-orders">My Orders</Link>
+              </li>
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
               </li>
             </>
           )}

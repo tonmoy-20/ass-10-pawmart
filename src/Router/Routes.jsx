@@ -17,6 +17,8 @@ import CategoryFiltered from "../components/CategoryFiltered";
 import PrivacyPolicy from "../pages/Privacy-policy";
 import Contact from "../pages/ContactPage";
 import BlogPage from "../pages/BlogPage";
+import MainDashboardLayout from "../pages/Dashboard/MainDashboard";
+import DashboardLayout from "../pages/Dashboard/DashboardLayout";
 
 const router = createBrowserRouter([
   {
@@ -44,14 +46,7 @@ const router = createBrowserRouter([
         path: "/forget/:email",
         element: <ForgetPass />,
       },
-      {
-        path: "/my-orders",
-        element: (
-          <PrivateRoute>
-            <MyOrders />
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: "/add-services",
         element: (
@@ -68,14 +63,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/my-services",
-        element: (
-          <PrivateRoute>
-            <MyServices />
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: "/update-services/:id",
         element: (
@@ -92,14 +80,7 @@ const router = createBrowserRouter([
           </>
         ),
       },
-      {
-        path: "/profile",
-        element: (
-          <PrivateRoute>
-            <Profile />
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: "/privacy-policy",
         element: <PrivacyPolicy />,
@@ -111,6 +92,77 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <BlogPage />,
+      },
+      {
+        path: "/my-orders",
+        element: (
+          <PrivateRoute>
+            <MyOrders />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-services",
+        element: (
+          <PrivateRoute>
+            <MyServices />
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "/dashboard",
+        element: <MainDashboardLayout />,
+      },
+
+      {
+        path: "my-orders",
+        element: (
+          <PrivateRoute>
+            <MyOrders />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "my-services",
+        element: (
+          <PrivateRoute>
+            <MyServices />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "add-services",
+        element: (
+          <PrivateRoute>
+            <AddServices />
+          </PrivateRoute>
+        ),
       },
     ],
   },
