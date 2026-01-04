@@ -5,7 +5,10 @@ import { updateProfile } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { FcGoogle } from "react-icons/fc";
 import toast, { Toaster } from "react-hot-toast";
-const notify = () => toast(" Successfully Registerd.");
+import { UserPen } from "lucide-react";
+
+const notify = () => toast("Successfully Registered 🎉");
+
 const Register = () => {
   const { registerWithEmailPassword, user, setUser, handleGoogleSignIn } =
     useContext(AuthContext);
@@ -20,98 +23,88 @@ const Register = () => {
     const uppercase = /[A-Z]/;
     const lowercase = /[a-z]/;
 
-    if (pass.length < 6) {
-      return alert("less than 6 characters");
-    }
-    if (!uppercase.test(pass)) {
-      return alert("Need a UpperCase");
-    }
-    if (!lowercase.test(pass)) {
-      return alert("Need a Lower Case");
-    }
+    if (pass.length < 6) return alert("Password must be at least 6 characters");
+    if (!uppercase.test(pass))
+      return alert("Password needs an uppercase letter");
+    if (!lowercase.test(pass))
+      return alert("Password needs a lowercase letter");
+
     registerWithEmailPassword(email, pass)
       .then((userCredential) => {
         updateProfile(auth.currentUser, {
           displayName: name,
           photoURL: photourl,
-        })
-          .then(() => {
-            setUser(userCredential.user);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const googleSignUp = () => {
-    handleGoogleSignIn()
-      .then((result) => {
-        const user = result.user;
-        setUser(user);
+        }).then(() => {
+          setUser(userCredential.user);
+        });
       })
       .catch((err) => console.log(err));
   };
 
-  console.log(user);
+  const googleSignUp = () => {
+    handleGoogleSignIn()
+      .then((result) => setUser(result.user))
+      .catch((err) => console.log(err));
+  };
 
   return (
-    <div>
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="card bg-base-100 w-100 max-w-sm shrink-0 shadow-2xl">
-            <div className="card-body">
-              <form onSubmit={handelSubmit} className="fieldset">
-                <label className="label">Email</label>
-                <input
-                  name="email"
-                  type="email"
-                  className="input"
-                  placeholder="Email"
-                />
-                <label className="label">Name</label>
-                <input
-                  name="name"
-                  type="text"
-                  className="input"
-                  placeholder="Your Name"
-                />
-                <label className="label">PhotoURL</label>
-                <input
-                  name="photoUrl"
-                  type="text"
-                  className="input"
-                  placeholder="Your PhotoUrl"
-                />
-                <label className="label">Password</label>
-                <input
-                  name="password"
-                  type="password"
-                  className="input"
-                  placeholder="Password"
-                />
-                {/* <div>
-                  <a className="link link-hover">Forgot password?</a>
-                </div> */}
-                <button onClick={googleSignUp} className="btn  ">
-                  <FcGoogle />o o g l e
-                </button>
-                <div>
-                  <span>Already have an account? </span>
-                  <Link className="text-blue-500 font-medium" to="/login">
-                    Login
-                  </Link>
-                </div>
-                <button onClick={notify} className="btn btn-neutral mt-4">
-                  Register
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-100 via-purple-100 to-pink-100">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
+        <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
+          Create Your Account
+        </h2>
+
+        <form onSubmit={handelSubmit} className="space-y-4">
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            className="input input-bordered w-full rounded-full"
+          />
+
+          <input
+            name="name"
+            type="text"
+            placeholder="Full Name"
+            className="input input-bordered w-full rounded-full"
+          />
+
+          <input
+            name="photoUrl"
+            type="text"
+            placeholder="Photo URL"
+            className="input input-bordered w-full rounded-full"
+          />
+
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            className="input input-bordered w-full rounded-full"
+          />
+
+          <button
+            type="button"
+            onClick={googleSignUp}
+            className="btn w-full bg-white border hover:bg-gray-100 rounded-full flex gap-2"
+          >
+            <FcGoogle className="text-xl" /> Sign up with Google
+          </button>
+
+          <p className="text-center text-sm">
+            Already have an account?
+            <Link to="/login" className="text-purple-600 font-medium ml-1">
+              Login
+            </Link>
+          </p>
+
+          <button
+            onClick={notify}
+            className="btn w-full bg-gray-900 hover:bg-black text-amber-300 rounded-full flex gap-2"
+          >
+            <UserPen /> Register
+          </button>
+        </form>
       </div>
       <Toaster />
     </div>

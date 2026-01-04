@@ -65,8 +65,11 @@ const ServiceDetails = () => {
   }
 
   return (
-    <div className="flex flex-col items-center mt-5 mb-5 px-[145px]">
-      <div className="card bg-base-100 w-96 shadow-sm">
+    <div
+      className="flex flex-col items-center  px-[145px] 
+"
+    >
+      <div className="card bg-base-100 w-96 shadow-sm mb-3 mt-3">
         <figure>
           <img src={services?.image} alt="Shoes" />
         </figure>

@@ -8,6 +8,7 @@ import {
   UserStar,
   ClipboardPlus,
   ListOrdered,
+  House,
 } from "lucide-react";
 import { MdOutlineAddCircle } from "react-icons/md";
 import { useContext } from "react";
@@ -71,13 +72,15 @@ const Aside = () => {
       </nav>
 
       {/* Footer */}
-      <div className="px-4 py-4 border-t flex justify-between border-gray-800">
+      <div className="px-4 py-4 border-t flex justify-between gap-3 items-center border-gray-800">
         <Link to={"/"}>
-          <button className="btn btn-accent">Home</button>
+          <button className="btn btn-primary  hover:bg-purple-700 text-white px-5 rounded-full shadow-md">
+            <House /> Home
+          </button>
         </Link>
         <button
           onClick={handleLogOut}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500 hover:text-white transition"
+          className=" flex items-center  px-5 py-2 rounded-full text-red-400 hover:bg-red-500 hover:text-white transition"
         >
           <LogOut size={20} />
           Logout

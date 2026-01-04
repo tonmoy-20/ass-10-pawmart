@@ -33,7 +33,9 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <section style={styles.wrapper}>
-      <h2 style={styles.title}>What Our Customers Say 🐾</h2>
+      <h2 className="font-semibold" style={styles.title}>
+        What Our Customers Say 🐾
+      </h2>
       <p style={styles.subtitle}>Trusted by pet lovers all over the country</p>
 
       <div style={styles.grid}>

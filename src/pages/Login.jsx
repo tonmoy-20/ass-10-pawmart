@@ -4,7 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import auth from "../firebase/firebase.config";
 import { FcGoogle } from "react-icons/fc";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
+import { UserLock } from "lucide-react";
 
 const Login = () => {
   const { setUser, handleGoogleSignIn } = useContext(AuthContext);
@@ -44,47 +45,76 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="card bg-base-100 w-100 max-w-sm shrink-0 shadow-2xl">
-            <div className="card-body">
-              <form onSubmit={handleSubmit} className="fieldset">
-                <label className="label">Email</label>
-                <input
-                  onChange={(e) => setEmail(e.target.value)}
-                  name="email"
-                  type="email"
-                  className="input"
-                  placeholder="Email"
-                />
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-100 via-purple-100 to-pink-100">
+      <div className="w-full max-w-md p-8 rounded-2xl shadow-2xl bg-white/70 backdrop-blur-md border border-white">
+        <h2 className="text-3xl font-bold text-center mb-2 text-gray-800">
+          Welcome Back
+        </h2>
+        <p className="text-center text-gray-500 mb-6">
+          Login to continue to your account
+        </p>
 
-                <label className="label">Password</label>
-                <input
-                  name="password"
-                  type="password"
-                  className="input"
-                  placeholder="Password"
-                />
-                <div>
-                  <button onClick={handleForget} className="link link-hover">
-                    Forgot password?
-                  </button>
-                </div>
-                <button onClick={googleSignIn} className="btn  ">
-                  <FcGoogle />o o g l e
-                </button>
-                <div>
-                  <span>Don't have any account? </span>
-                  <Link className="text-purple-500 font-medium" to="/signup">
-                    Register
-                  </Link>
-                </div>
-                <button className="btn btn-neutral mt-4">Login</button>
-              </form>
-            </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="label font-medium text-gray-700">Email</label>
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              type="email"
+              className="input input-bordered w-full rounded-full"
+              placeholder="Enter your email"
+            />
           </div>
-        </div>
+
+          <div>
+            <label className="label font-medium text-gray-700">Password</label>
+            <input
+              name="password"
+              type="password"
+              className="input input-bordered w-full rounded-full"
+              placeholder="Enter your password"
+            />
+          </div>
+
+          <div className="text-right">
+            <button
+              type="button"
+              onClick={handleForget}
+              className="text-sm text-purple-600 hover:underline"
+            >
+              Forgot password?
+            </button>
+          </div>
+
+          <button
+            type="submit"
+            className="btn w-full rounded-full bg-gray-900 hover:bg-black text-amber-300 text-lg"
+          >
+            <UserLock className="mr-2" />
+            Login
+          </button>
+
+          <div className="divider text-sm text-gray-400">OR</div>
+
+          <button
+            type="button"
+            onClick={googleSignIn}
+            className="btn w-full rounded-full bg-white border hover:bg-gray-100 text-gray-700"
+          >
+            <FcGoogle className="text-xl mr-2" />
+            Continue with Google
+          </button>
+
+          <p className="text-center text-sm mt-4">
+            Don’t have an account?
+            <Link
+              to="/signup"
+              className="ml-1 text-purple-600 font-semibold hover:underline"
+            >
+              Register
+            </Link>
+          </p>
+        </form>
       </div>
     </div>
   );

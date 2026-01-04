@@ -16,7 +16,10 @@ const Services = () => {
   }, [category]);
 
   return (
-    <div className="mt-5 mb-5 md:px-40 px-4">
+    <div
+      className=" md:px-40 px-4 
+"
+    >
       <select
         onChange={(e) => setCategory(e.target.value)}
         defaultValue="Pick a color"
@@ -37,7 +40,7 @@ const Services = () => {
               scale: 1,
               transition: { duration: 1 },
             }}
-            className="card bg-base-100 w-full  shadow-sm"
+            className="card bg-base-100 w-full  shadow-sm mb-3"
           >
             <figure>
               <img

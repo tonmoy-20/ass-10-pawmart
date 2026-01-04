@@ -4,6 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { signOut } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import logo from "../assets/pawmart-logo-removebg-preview.png";
+import { LockKeyholeOpen, LogIn, LogOut, UserLock } from "lucide-react";
 const Navbar = () => {
   const { user } = useContext(AuthContext);
 
@@ -81,7 +82,7 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-lg">
+        <Link to="/" className="btn btn-ghost hover:bg-amber-300 text-lg">
           <img className="w-40 h-30 mb-2 mt-2" src={logo} alt="Paw-Mart" />
         </Link>
       </div>
@@ -158,18 +159,44 @@ const Navbar = () => {
 
         {user ? (
           <>
-            <img
-              src={user?.photoURL}
-              alt="User Avatar"
-              className="w-10 h-10 rounded-full border border-gray-300"
-            />
-            <button onClick={handleSignOut} className="btn">
-              Logout
-            </button>
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    src={
+                      user?.photoURL || "https://i.ibb.co/2kRkzGd/avatar.png"
+                    }
+                    alt="Profile"
+                  />
+                </div>
+              </label>
+
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  bg-purple-200 rounded-box w-52"
+              >
+                <li className="px-3 py-2 font-semibold">{user?.displayName}</li>
+                <li>
+                  <Link to="/dashboard">Dashboard</Link>
+                </li>
+                <li>
+                  <Link to="/profile">Profile</Link>
+                </li>
+                <li>
+                  <button className="btn  btn-error" onClick={handleSignOut}>
+                    <LogOut />
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </div>
           </>
         ) : (
-          <Link to="/login" className="btn">
-            Login
+          <Link
+            to="/login"
+            className="btn bg-gray-800 hover:bg-black rounded-full text-amber-300"
+          >
+            <UserLock /> Login
           </Link>
         )}
       </div>

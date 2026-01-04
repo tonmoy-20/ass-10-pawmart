@@ -32,7 +32,11 @@ const blogPosts = [
 
 const Blog = () => {
   return (
-    <div style={styles.container}>
+    <div
+      className="
+"
+      style={styles.container}
+    >
       <h1 style={styles.title}>PawMart Blog</h1>
       <p style={styles.subtitle}>
         Tips, guides, and insights to keep your pets healthy and happy

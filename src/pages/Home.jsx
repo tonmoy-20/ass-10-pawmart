@@ -12,7 +12,10 @@ import SupportHelp from "./Dashboard/SupportHelp";
 
 const Home = () => {
   return (
-    <div>
+    <div
+      className="
+"
+    >
       <title>Home</title>
       <SliderSwip />
       <CategoryCards />
